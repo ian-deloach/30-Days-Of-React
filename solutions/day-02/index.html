@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30 Days Of React Challenge</title>
+  </head>
+
+  <body>
+    <div class="root"></div>
+    <script
+        crossorigin
+        src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+        crossorigin
+        src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        // To get the root element form the HTML document
+        const rootElement = document.querySelector(".root")
+
+        // // JSX element
+        // const jsxElement = <h1>This is a JSX element</h1>
+
+        // Injecting data into a React site
+        const firstName = "Ian"
+        const lastName = "DeLoach"
+        const favoriteColors = ["blue", "black", "grey"]
+
+        const techs = ["HTML", "CSS", "JavaScript"]
+        const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
+
+        // Injecting an object
+        const myFriend = {
+            firstName: "Nate",
+            lastName: "Jester",
+            favoriteColor: "orange"
+        }
+
+        // Header style
+        const headerStyles = {
+            backgroundColor: '#61DBFB',
+            fontFamily: 'Helvetica Neue',
+            padding: 25,
+            lineHeight: 1.5
+        }
+
+        // Header element
+        const header = (
+            <header style={headerStyles}>
+                <h1>Welcome to 30 days of react</h1>
+                <h2>Getting started with react</h2>
+                <h3>JavaScript Library</h3>
+                <p>{firstName} {lastName}</p>
+                <p>My favorite colors are: {favoriteColors.join(" ")}</p>
+                <p>My friend is {myFriend.firstName} {myFriend.lastName}, and his favorite color is {myFriend.favoriteColor}</p>
+                <small>November 7th, 2024</small>
+            </header>
+        )
+
+        // Body element
+        const main = (
+            <main>
+                <p>Prerequisite to getting started with React.js:</p>
+                <ul>{techsFormatted}</ul>
+            </main>
+        )
+
+        // Footer element
+        const footer = (
+            <footer>
+                <p>Copyright 2024</p>
+            </footer>
+        )
+
+        // Since only one element can be rendered, put everything together into one element
+        const app = (
+            <div>
+                {header}
+                {main}
+                {footer}
+            </div>
+        )
+
+        // The JSX element is rendered with the ReactDOM package
+        // ReactDOM has the render method, and the render method takes two arguments
+        // It takes the element to be rendered and the root element as arguments
+        ReactDOM.render(app, rootElement)
+        // Or
+        // ReactDOM.render([header, main, footer], rootElement)
+
+    </script>
+
+  </body>
+</html>
